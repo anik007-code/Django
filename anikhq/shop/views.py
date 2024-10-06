@@ -1,10 +1,12 @@
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from shop.models import Products
 
 
 def home(request):
-    return render(request, 'home.html')
+    products = Products.objects.all()
+    return render(request, 'home.html',{'products': products})
 
 
 def register(request):
