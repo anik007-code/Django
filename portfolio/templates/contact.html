@@ -5,80 +5,73 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <title>Portfolio</title>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Portfolio</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <a class="text-2xl font-bold" href="#">Portfolio</a>
+        <button class="text-white block md:hidden" id="navbar-toggler">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="hidden md:flex space-x-6">
+          <a class="hover:text-teal-400" href="/">Home</a>
+          <a class="hover:text-teal-400" href="/blog">Blog</a>
+          <a class="hover:text-teal-400" href="/about">About</a>
+          <a class="hover:text-teal-400 text-teal-400" href="/contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <div class="container mx-auto my-12 px-6 flex-grow">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-6">Contact Me</h2>
+
+      <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-8">
+        <form action="/contact" method="POST" class="space-y-4">
+          {% csrf_token %}
+
+          <div class="mb-4">
+            <label for="name" class="block text-lg font-medium text-gray-700">Name</label>
+            <input type="text" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" id="name" name="name" placeholder="Enter your name">
+          </div>
+
+          <div class="mb-4">
+            <label for="email" class="block text-lg font-medium text-gray-700">Email address</label>
+            <input type="email" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" id="email" name="email" placeholder="Enter your email">
+          </div>
+
+          <div class="mb-4">
+            <label for="desc" class="block text-lg font-medium text-gray-700">Write your message</label>
+            <textarea class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" id="desc" name="desc" rows="4" placeholder="Your message"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg font-semibold">
+            Submit
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/blog">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/contact">Contact</a>
-              </li>
-
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <!----------------NavBar End--------------->
-      <div class="container">
-          <h2 class="text-center">Contact me</h2>
-          <form action="/contact" method="POST">
-            {% csrf_token %}
-
-          <div class="mb-3">
-            <label for="name" class="name">Name</label>
-            <input type="text" class="form-control" id="name" name = "name" placeholder="Enter your name">
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-          </div>
-          <div class="mb-3">
-            <label for="desc" class="form-label">Write your message</label>
-            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
-          </div>
-        <button type="submit" class="btn btn-success">Submit</button>
         </form>
-        </div>
-            <!--------- Footer Start-------------->
-      <br><br><br><br><br><br><br><br><br><br><br>
-      <footer class="bg-dark text-white position-relative">
-        <p class="text-center py-2 mr-0">© All Copyrights reserved. Developed by Engineer Anik.</p>
-      </footer>
-      <!--------Footer End-------------->
+      </div>
+    </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-4 mt-auto">
+      <p class="text-center">© All rights reserved. Developed by Engineer Anik.</p>
+    </footer>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- Script to toggle navbar in mobile view -->
+    <script>
+      document.getElementById('navbar-toggler').addEventListener('click', function() {
+        const navMenu = this.nextElementSibling;
+        navMenu.classList.toggle('hidden');
+      });
+    </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

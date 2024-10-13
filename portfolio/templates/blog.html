@@ -1,79 +1,120 @@
 <!doctype html>
 <html lang="en">
+    {% load static %}
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
     <title>Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-gray-50 text-gray-900">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Portfolio</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/blog">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/contact">Contact</a>
-              </li>
-
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a class="text-2xl font-bold" href="#">Portfolio</a>
+        <div class="hidden md:flex space-x-6">
+          <a class="hover:text-teal-400" href="/">Home</a>
+          <a class="hover:text-teal-400" href="/blog">Blog</a>
+          <a class="hover:text-teal-400" href="/about">About</a>
+          <a class="hover:text-teal-400 text-teal-400" href="/contact">Contact</a>
         </div>
-      </nav>
-      <!----------------NavBar End--------------->
+      </div>
+    </nav>
 
-      {% load static %}
-      <img src="{% static 'images/python.jpg' %}" class="d-block w-100" alt="..." height="350" width="1000">
-      <h1>About Python</h1>
-    <p>I have been practicing Python programming language since 2018 when I was a student at Lovely Professional University. I know Numpy, Pandas, Matplotlib, ScikitLearn, Tensorflow, Keras, Various ML models, OpenCV, and PyTroch.
-    I have done some projects with Python. </p>
-    <img src="{% static 'images/django.png' %}" class="d-block w-100" alt="..." height="350" width="1000">
-    <!-- Optional JavaScript; choose one of the two! -->
-    <h1>About Django</h1>
-    <p>I am a beginner of Django FrameWork and it's structure. I am learning it. Basically, this website is also made by Bootstrap and Django. </p>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-500 to-teal-500 text-white p-8 rounded-lg shadow-lg mb-8 text-center">
+      <h1 class="text-4xl font-bold">Welcome to My Portfolio</h1>
+      <p class="text-xl mt-4">Discover my skills in Scrapy, Machine Learning, NLP, Docker, Kubernetes, and more!</p>
+    </div>
 
+    <!-- Sections -->
+    <div class="container mx-auto px-4">
 
+      <!-- Scrapy Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/scrapy.png' %}" alt="Scrapy Logo" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">About Scrapy</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Scrapy is a powerful Python framework for extracting data from websites. I've worked extensively with Scrapy, scraping a wide range of websites, from e-commerce platforms to social media sites. It allows for asynchronous scraping, making it efficient for large-scale data crawling tasks.
+          </p>
+        </div>
+      </div>
 
-    <img src="{% static 'images/selenium.png' %}" class="d-block w-100" alt="..." height="350" width="1000">
-    <h1>About Selenium</h1>
-    <p>1. I have professional experience with Selenium. I have used it for Data Crawling. from November 1st to May,
-      I worked in an IT company and there I used selenium very widely.
-      I have scraped almost 30 websites with Selenium. </p>
-    <p>2. I have also worked with Scrapy. After scraping raw data, I can clean it and store all the data in MySql WorkBench using Python and SQL commands.
-    </p>
-    <!--------- Footer Start-------------->
-      <footer class="bg-dark text-white position-relative">
-        <p class="text-center py-2 mr-0">© All Copyrights reserved. Developed by Engineer Anik.</p>
-      </footer>
-      <!--------Footer End-------------->
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+      <!-- Machine Learning Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/machine_learning.jpeg' %}" alt="Machine Learning" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">Machine Learning</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Machine Learning (ML) has been a significant focus of my work. I’ve developed and deployed models using frameworks like TensorFlow and PyTorch, leveraging supervised and unsupervised learning techniques.
+          </p>
+        </div>
+      </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    -->
+      <!-- NLP Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/nlp.jpg' %}" alt="NLP" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">Natural Language Processing (NLP)</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            NLP has allowed me to work on tasks like text classification, sentiment analysis, and named entity recognition using models like BERT and SpaCy. I’ve developed custom NLP pipelines, handling multi-lingual data, and optimized them for real-time applications.
+          </p>
+        </div>
+      </div>
+
+      <!-- NGINX Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/nginx.jpg' %}" alt="NGINX" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">NGINX</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            I have deployed over 20 applications using NGINX as a reverse proxy and load balancer. NGINX ensures high availability and performance for my applications.
+          </p>
+        </div>
+      </div>
+
+      <!-- Docker Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/Docker-Logo.png' %}" alt="Docker" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">Docker</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Docker has revolutionized the way I build and deploy applications. I’ve containerized Django applications, FastAPI microservices, and machine learning models to ensure consistent environments across development and production.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kubernetes Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/kubernetes.png' %}" alt="Kubernetes" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">Kubernetes</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Kubernetes has been key in managing containerized applications at scale. From Minikube to production clusters, I’ve used Kubernetes for orchestration, ensuring scalability, auto-healing, and efficient resource management.
+          </p>
+        </div>
+      </div>
+
+      <!-- Nominatim Section -->
+      <div class="bg-white p-6 rounded-lg shadow-md my-6 flex items-center space-x-6">
+        <img src="{% static 'images/nominatim.jpeg' %}" alt="Nominatim" class="w-32 h-32 rounded-lg shadow-md">
+        <div>
+          <h2 class="text-2xl font-bold mb-2 text-gray-800">Nominatim Instance Installation</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            I’ve installed and deployed Nominatim instances for geocoding purposes, enabling location-based services for multiple applications. From setting up PostGIS databases to fine-tuning the Nominatim configuration, my experience ensures smooth geocoding services.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 mt-8">
+      <p class="text-center">© All rights reserved. Developed by Engineer Anik.</p>
+    </footer>
+
   </body>
 </html>
