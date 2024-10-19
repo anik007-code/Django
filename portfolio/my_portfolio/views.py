@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from my_portfolio.models import Contact
@@ -23,6 +24,7 @@ def contact(request):
         desc = request.POST['desc']
         values = Contact(name=name, email=email, desc=desc)
         values.save()
+        messages.warning(request, "Your message was updated.")
         return redirect('home')
     return render(request, 'contact.html')
 
