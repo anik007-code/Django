@@ -2,44 +2,29 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:12
-    container_name: postgres_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    image: postgres:13
     environment:
       POSTGRES_DB: Anik
       POSTGRES_USER: anik
       POSTGRES_PASSWORD: 123
-    networks:
-      - django_net
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: django_app
-    command: gunicorn portfolio.wsgi:application --bind 0.0.0.0:8000
+    build: .
+    command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ./staticfiles:/app/staticfiles
-      - ./media:/app/media
-    environment:
-      - DJANGO_SECRET_KEY=django-insecure-d%&)0%4)-ti5!#$g$xi)v4j%36^ako)cos4dkc25vuni*kp_u=
-      - DJANGO_DEBUG=False
-      - DB_NAME=Anik
-      - DB_USER=anik
-      - DB_PASSWORD=123
-      - DB_HOST=db
-      - DB_PORT=5432
-    depends_on:
-      - db
-    networks:
-      - django_net
+      - .:/app
     ports:
       - "8000:8000"
+    environment:
+      - DEBUG=1
+      - DJANGO_SECRET_KEY=mysecretkey
+      - DATABASE_URL=postgres://anik:123@db:5432/Anik
+    depends_on:
+      - db
 
 volumes:
   postgres_data:
-
-networks:
-  django_net:
-    driver: bridge
