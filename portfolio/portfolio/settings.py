@@ -120,3 +120,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # This is for collectstatic, where all s
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['https://aniklpu.cloud']
+
