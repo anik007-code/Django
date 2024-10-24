@@ -1,0 +1,28 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: aniklpu01/portfolio_db:latest  # Updated to use the pushed image
+        env:
+          - name: POSTGRES_DB
+            value: "Anik"
+          - name: POSTGRES_USER
+            value: "anik"
+          - name: POSTGRES_PASSWORD
+            value: "123"
+        ports:
+        - containerPort: 5432

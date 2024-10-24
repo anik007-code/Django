@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+  namespace: portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - name: django
+        image: aniklpu01/portfolio_web:latest  # Updated to use the pushed image
+        env:
+          - name: DATABASE_URL
+            value: "postgres://anik:123@postgres:5432/Anik"
+          - name: SECRET_KEY
+            value: "django-insecure-d%&)0%4)-ti5!#$g$xi)v4j%36^ako)cos4dkc25vuni*kp_u="
+        ports:
+        - containerPort: 8000
