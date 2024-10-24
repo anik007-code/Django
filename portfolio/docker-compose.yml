@@ -21,7 +21,7 @@ services:
       - "8000:8000"
     environment:
       - DEBUG=1
-      - DJANGO_SECRET_KEY=mysecretkey
+      - DJANGO_SECRET_KEY=django-insecure-d%&)0%4)-ti5!#$g$xi)v4j%36^ako)cos4dkc25vuni*kp_u=
       - DATABASE_URL=postgres://anik:123@db:5432/Anik
     depends_on:
       - db
