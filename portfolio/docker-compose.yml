@@ -11,8 +11,8 @@ services:
         volumes:
             - .:/app
         command: >
-            sh -c "python manage.py migrate
-                  python manage.py runserver 0.0.0.0:8010"
+            sh -c "python manage.py migrate &&
+                   python manage.py runserver 0.0.0.0:8010"
         environment:
             DB_HOST: db
             DB_NAME: Anik
@@ -20,6 +20,7 @@ services:
             DB_PASSWORD: 123
         depends_on:
           - db
+
     db:
       image: postgres:13
       environment:
@@ -30,5 +31,6 @@ services:
         - postgres_data:/var/lib/postgresql/data
       ports:
         - "5432:5432"
+
 volumes:
-    datadir:
+    postgres_data:
