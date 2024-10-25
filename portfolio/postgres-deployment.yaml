@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: aniklpu01/portfolio_db:latest  # Updated to use the pushed image
+        image: aniklpu01/portfolio:latest  # Updated to use the pushed image
         env:
           - name: POSTGRES_DB
             value: "Anik"
