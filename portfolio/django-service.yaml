@@ -4,9 +4,9 @@ metadata:
   name: django
   namespace: portfolio
 spec:
-  type: LoadBalancer
+  type: LoadBalancer  # Can also be NodePort for local development
   ports:
-    - port: 80 # or another port
-      targetPort: 8000
+    - port: 80          # The port exposed by the service
+      targetPort: 8000  # The port your Django app is running on in the container
   selector:
-    app: portfolio
+    app: django         # This should match the label of your Django pod
