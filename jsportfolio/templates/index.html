@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Anik's Portfolio</title>
+    <!-- font icons -->
+    <!-- Bootstrap + JohnDoe main styles -->
+    <link rel="stylesheet" href="{% static 'css/johndoe.css' %}">
+
+</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+            <li> {{ message }}</li>
+        {% endfor %}
+      </ul>
+        {% endif %}
+    <div class="container mx-auto p-8 bg-gray-900">
+        <div class="header-content text-center py-12">
+            <h4 class="header-subtitle text-lg text-gray-300">Hello, I am</h4>
+            <h1 class="header-title text-4xl font-bold text-white mt-2">Md Arifur Rahman Anik</h1>
+            <h6 class="header-mono text-xl font-medium text-gray-200 mt-4">AI/ML and DevOps Enthusiast</h6>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 bg-white shadow-lg z-10">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-gray-700" @click="open = !open">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+        </button>
+
+        <!-- Brand Section -->
+        <ul class="flex items-center space-x-3">
+            <li><img src="{% static 'imgs/anik.jpg' %}" alt="" class="w-10 h-10 rounded-full"></li>
+            <li class="text-gray-800">
+                <h5 class="font-bold text-lg">Md Arifur Rahman Anik</h5>
+                <div class="text-sm text-gray-600">AI/ML and DevOps Enthusiast</div>
+            </li>
+        </ul>
+
+        <!-- Links Section (hidden on small screens) -->
+        <div class="hidden lg:flex space-x-8">
+            <a href="#home" class="text-gray-700 hover:text-gray-900">Home</a>
+            <a href="#about" class="text-gray-700 hover:text-gray-900">About</a>
+            <a href="#resume" class="text-gray-700 hover:text-gray-900">Resume</a>
+            <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Links (toggle visibility based on 'open' state) -->
+        <div class="lg:hidden" x-show="open">
+            <div class="flex flex-col mt-4 space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-gray-900">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-gray-900">About</a>
+                <a href="#resume" class="text-gray-700 hover:text-gray-900">Resume</a>
+                <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Who am I ?</h3>
+                <span class="line mb-5"></span>
+                <h5 class="mb-3">An AI/ML and DevOps developer Located In Our Lovely Earth</h5>
+                <p class="mt-20">I’m a Python developer with over 2 years of experience specializing in Machine Learning and Natural Language Processing (NLP). I have a passion for solving real-world problems through technology and creating efficient solutions using the power of Python and Django.</p>
+                <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Download My CV</button>
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Personal Info</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                    <li><span>Birthdate</span> : 22/08/1999</li>
+                    <li><span>Email</span> : aniklpu01@gmail.com</li>
+                    <li><span>Phone</span> : +8801627220072</li>
+                    <li><span>Skype</span> : Anik007 </li>
+                    <li><span>Address</span> :  Nikunja 2, Khilkhet, Dhaka, Bangladesh</li>
+                </ul>
+                <ul class="social-icons pt-3">
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>  
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">My Expertise</h3>
+                <span class="line mb-5"></span>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Machine Learning</h6>
+                        <p class="subtitle"> Advanced techniques, predictive models, and data precision.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>API Development</h6>
+                        <p class="subtitle">Building robust endpoints, ensuring seamless data flow, and optimizing response times.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-stats-up icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>DevOps</h6>
+                        <p class="subtitle">Automating workflows, enhancing deployment pipelines, and ensuring system reliability.</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Resume Section-->
+    <section class="section" id="resume">
+        <div class="container">
+            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Expertise</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body">
+                        <h6 class="title text-danger">October 2023 - Present</h6>
+                        <P>Python Developer</P>
+                        <P class="subtitle">At Jobdesk Bangladesh, I deploy Python apps on Nginx and Apache, optimize CI/CD with Docker, and develop APIs for document processing and job data.</P>
+                        <hr>
+                        <h6 class="title text-danger">November 2022 - May 2023</h6>
+                        <P>Junior Machine Learning Engineer</P>
+                        <P class="subtitle">At JobXprss Limited, I automated the scraping of 15,000 e-commerce products, improving data accuracy and platform efficiency.</P>
+                        <hr>
+                        <h6 class="title text-danger">November 2021 - May 2022</h6>
+                        <P>Junior Machine Learning Engineer (Intern)</P>
+                        <P class="subtitle">At Ishraak Solutions, I trained image detection models, enhancing object recognition accuracy and optimizing deployment processes.</P>
+                    </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Education</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2018 - 2022</h6>
+                            <P>BTech, Computer Science and Engineering</P>
+                            <P class="subtitle">Focused on software development, data structures, and machine learning, gaining hands-on experience in various projects.</P>
+                            <hr>
+                            <h6 class="title text-danger">2015 - 2017</h6>
+                            <P>Diploma in Computer Engineering</P>
+                            <P class="subtitle"></P>
+                            <hr>
+                            <h6 class="title text-danger">2015</h6>
+                            <P>High School Degree</P>
+                            <P class="subtitle"></P>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Skills</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>Python &amp; MySql & PostgresSql</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Tensorflow, Keras, PyTorch, Scikit-Learn, BERT</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>LLMs, NLP, OpenCV, ML Models, Text Classification</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Docker, Kubernetes, Nginx, CI/CD, Jenkins, ArgoCD, Git</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Docker Compose, LangChain, OpenAI</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Elasticsearch, Load Balancing, Monitoring</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Languages</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>English</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Bengali</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 45%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Hindi</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 67%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="service">
+    <div class="container mx-auto">
+        <h2 class="mb-5 pb-4 text-3xl font-bold"><span class="text-danger">My</span> Expertise</h2>
+        <div class="row flex flex-wrap">
+            <div class="col-md-4 col-sm-6">
+                <div class="card mb-5 border rounded-lg shadow-lg bg-white">
+                    <div class="card-header flex items-center p-4 border-b">
+                        <i class="ti-vector text-danger text-2xl" aria-hidden="true"></i>
+                        <h5 class="ml-2 font-bold">Ullam</h5>
+                    </div>
+                    <div class="card-body px-4 py-3">
+                        <p class="subtitle text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt!</p>
+                        <button id="toggleDetails" class="mt-3 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+            <h3 class="text-lg font-bold mb-4">Details</h3>
+            <p class="text-gray-600">In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</p>
+            <button id="closeModal" class="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none">Close</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    const toggleDetails = document.getElementById('toggleDetails');
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+
+    toggleDetails.addEventListener('click', function() {
+        modal.classList.remove('hidden');
+    });
+
+    closeModal.addEventListener('click', function() {
+        modal.classList.add('hidden');
+    });
+
+    // Close modal when clicking outside of the modal content
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+</script>
+
+
+
+    <section class="section bg-custom-gray" id="price">
+        <div class="container">
+            <h1 class="mb-5"><span class="text-danger">Packs</span> Pricing</h1>
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Free</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">0</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">5 <span class="text-muted">Project</span></li>
+                            <li class="list-item">1GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item"><span class="text-muted">No Domain</span></li>
+                            <li class="list-item">1 <span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Basic</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">10</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">50 <span class="text-muted">Project</span></li>
+                            <li class="list-item">10GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">1<span class="text-muted">Domain</span></li>
+                            <li class="list-item">5 <span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center price-card-requried mb-4">
+                        <h3 class="price-card-title">Exclusive</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">25</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">150 <span class="text-muted">Project</span></li>
+                            <li class="list-item">15GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">5<span class="text-muted"> Domain</span></li>
+                            <li class="list-item">15<span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Pro</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">99</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">500 <span class="text-muted">Project</span></li>
+                            <li class="list-item">1000GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">10<span class="text-muted"> Domain</span></li>
+                            <li class="list-item">Unlimite<span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section bg-dark py-5">
+        <div class="container text-center">
+            <h2 class="text-light mb-5 font-weight-normal">I Am Available For FreeLance</h2>
+            <button class="btn bg-primary w-lg" >Hire me</button>
+        </div>
+    </section>
+
+    <div class="section contact" id="contact">
+        <div id="map" class="map"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h4 class="contact-title">Send a message</h4>
+                        <form action="{% url 'contact' %}" method="POST" class="space-y-4">
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <label for="name" class="block text-lg font-medium text-gray-700">Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="email" class="block text-lg font-medium text-gray-700">Email address</label>
+                                <input type="email" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="desc" class="block text-lg font-medium text-gray-700">Write your message</label>
+                                <textarea class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" id="desc" name="message" rows="4" placeholder="Your message" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <h4 class="contact-title">Get in touch</h4>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-mobile icon-md"></i>
+                            </div>
+                            <div class="col-10 ">
+                                <h6 class="d-inline">Phone : <br> <span class="text-muted">+8801627220072</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-map-alt icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Address :<br> <span class="text-muted"> Nikunja 2, Khilkhet, Dhaka, Bangladesh</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-envelope icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Email :<br> <span class="text-muted">aniklpu01@gmail.com</span></h6>
+                            </div>
+                        </div>
+                        <ul class="social-icons pt-4">
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light">
+                &copy; Created <i class="ti-heart text-danger"></i> By <span class="text-danger" title="Bootstrap 4 Themes and Dashboards">Anik</span>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
