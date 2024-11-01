@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-$uhtm$+^=8tj&7doya5^ii!i+qq$by!)3%57s^m$h2(kh5&g$z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["aniklpu.cloud"]
 
 
 # Application definition
