@@ -7,3 +7,14 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f'Message from {self.name} ({self.email})'
+
+
+
+class Service(models.Model):
+    title = models.CharField(max_length=100)
+    icon_class = models.CharField(max_length=50, default="ti-vector")
+    short_description = models.TextField()
+    detailed_description = models.TextField()
+
+    def __str__(self):
+        return self.title

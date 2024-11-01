@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ service.title }} - Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <section class="section py-10">
+        <div class="container mx-auto max-w-4xl bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ service.title }}</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">{{ service.detailed_description }}</p>
+            <a href="{% url 'home' %}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Back to Services</a>
+        </div>
+    </section>
+
+</body>
+</html>

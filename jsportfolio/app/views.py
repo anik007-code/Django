@@ -1,11 +1,10 @@
-from app.models import ContactMessage
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-
+from .models import Service, ContactMessage
 
 def home(request):
-    return render(request, 'index.html')
-
+    services = Service.objects.all()
+    return render(request, 'index.html', {'services': services})
 
 def contact(request):
     if request.method == 'POST':
@@ -24,3 +23,7 @@ def contact(request):
         return redirect('home')
 
     return render(request, 'index.html')
+
+def service_detail(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    return render(request, 'service_detail.html', {'service': service})

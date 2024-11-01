@@ -239,56 +239,99 @@
         </div>
     </section>
 
-    <section class="section" id="service">
-    <div class="container mx-auto">
-        <h2 class="mb-5 pb-4 text-3xl font-bold"><span class="text-danger">My</span> Expertise</h2>
-        <div class="row flex flex-wrap">
-            <div class="col-md-4 col-sm-6">
-                <div class="card mb-5 border rounded-lg shadow-lg bg-white">
-                    <div class="card-header flex items-center p-4 border-b">
-                        <i class="ti-vector text-danger text-2xl" aria-hidden="true"></i>
-                        <h5 class="ml-2 font-bold">Ullam</h5>
-                    </div>
-                    <div class="card-body px-4 py-3">
-                        <p class="subtitle text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt!</p>
-                        <button id="toggleDetails" class="mt-3 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Details</button>
+<!--    <section class="section" id="service">-->
+<!--    <div class="container mx-auto">-->
+<!--        <h2 class="mb-5 pb-4 text-3xl font-bold"><span class="text-danger">My</span> Expertise</h2>-->
+<!--        <div class="row flex flex-wrap">-->
+<!--            {% for service in services %}-->
+<!--                <div class="col-md-4 col-sm-6">-->
+<!--                    <div class="card mb-5 border rounded-lg shadow-lg bg-white">-->
+<!--                        <div class="card-header flex items-center p-4 border-b">-->
+<!--                            <i class="{{ service.icon_class }} text-danger text-2xl" aria-hidden="true"></i>-->
+<!--                            <h5 class="ml-2 font-bold">{{ service.title }}</h5>-->
+<!--                        </div>-->
+<!--                        <div class="card-body px-4 py-3">-->
+<!--                            <p class="subtitle text-gray-700">{{ service.short_description }}</p>-->
+<!--                            <button onclick="openModal({{ service.id }})" class="mt-3 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Details</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Modal &ndash;&gt;-->
+<!--    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">-->
+<!--        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">-->
+<!--            <h3 class="text-lg font-bold mb-4">Details</h3>-->
+<!--            <p id="modalContent" class="text-gray-600"></p>-->
+<!--            <button onclick="closeModal()" class="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none">Close</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--<script>-->
+<!--    const modal = document.getElementById('modal');-->
+<!--    const modalContent = document.getElementById('modalContent');-->
+
+<!--    function openModal(serviceId) {-->
+<!--        fetch(`/service/${serviceId}/`)-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                modalContent.textContent = data.detailed_description;-->
+<!--                modal.classList.remove('hidden');-->
+<!--            });-->
+<!--    }-->
+
+<!--    function closeModal() {-->
+<!--        modal.classList.add('hidden');-->
+<!--    }-->
+
+<!--    // Close modal when clicking outside of the modal content-->
+<!--    modal.addEventListener('click', function(event) {-->
+<!--        if (event.target === modal) {-->
+<!--            closeModal();-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+
+            <!-- Service List Section -->
+            {% if services %}
+            <section class="section" id="service">
+                <div class="container mx-auto">
+                    <h2 class="mb-5 pb-4 text-3xl font-bold"><span class="text-danger">My</span> Expertise</h2>
+                    <div class="row flex flex-wrap">
+                        {% for service in services %}
+                            <div class="col-md-4 col-sm-6">
+                            <div class="card mb-5 border rounded-lg shadow-lg bg-white h-64 flex flex-col justify-between"> <!-- Smaller height -->
+                                <div class="card-header flex items-center p-4 border-b">
+                                    <i class="{{ service.icon_class }} text-danger text-2xl" aria-hidden="true"></i>
+                                    <h5 class="ml-2 font-bold">{{ service.title }}</h5>
+                                </div>
+                                <div class="card-body flex flex-col justify-end p-4"> <!-- Ensure the body can grow -->
+                                    <p class="subtitle text-gray-700 mb-4">{{ service.short_description }}</p>
+                                    <a href="{% url 'service_detail' service.id %}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
+            {% endif %}
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
-            <h3 class="text-lg font-bold mb-4">Details</h3>
-            <p class="text-gray-600">In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</p>
-            <button id="closeModal" class="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none">Close</button>
-        </div>
-    </div>
-</section>
-
-<script>
-    const toggleDetails = document.getElementById('toggleDetails');
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-
-    toggleDetails.addEventListener('click', function() {
-        modal.classList.remove('hidden');
-    });
-
-    closeModal.addEventListener('click', function() {
-        modal.classList.add('hidden');
-    });
-
-    // Close modal when clicking outside of the modal content
-    modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.classList.add('hidden');
-        }
-    });
-</script>
-
+            <!-- Service Detail Section -->
+            {% if service %}
+            <section class="section py-10">
+                <div class="container mx-auto max-w-4xl bg-white shadow-lg rounded-lg p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ service.title }}</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">{{ service.detailed_description }}</p>
+                    <a href="{% url 'home' %}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Back to Services</a>
+                </div>
+            </section>
+            {% endif %}
 
 
     <section class="section bg-custom-gray" id="price">
