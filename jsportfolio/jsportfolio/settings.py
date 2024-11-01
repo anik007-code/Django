@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'jsportfolio.wsgi.application'
 #     }
 # }
 
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://anik:123@localhost:5432/Anik')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://anik:123@localhost:5432/anik')
 url = urlparse(DATABASE_URL)
 
 DATABASES = {
