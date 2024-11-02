@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: django
-        image: aniklpu01/portfolio_web:latest  # Updated to use the pushed image
+        image: aniklpu01/jsportfolio_web:latest  # Updated to use the pushed image
         env:
           - name: DATABASE_URL
             value: "postgres://anik:123@postgres:5432/Anik"
