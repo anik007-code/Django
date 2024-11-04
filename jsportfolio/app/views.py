@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Service, ContactMessage
+from .models import Project, ContactMessage
 
 def home(request):
-    services = Service.objects.all()
-    return render(request, 'index.html', {'services': services})
+    projects = Project.objects.all()
+    return render(request, 'index.html', {'projects': projects})
 
 def contact(request):
     if request.method == 'POST':
@@ -24,6 +24,7 @@ def contact(request):
 
     return render(request, 'index.html')
 
-def service_detail(request, service_id):
-    service = get_object_or_404(Service, id=service_id)
-    return render(request, 'service_detail.html', {'service': service})
+
+def project_details(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
+    return render(request, 'service_detail.html', {'project': project})

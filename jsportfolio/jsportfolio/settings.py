@@ -16,6 +16,7 @@ SECRET_KEY = 'django-insecure-$uhtm$+^=8tj&7doya5^ii!i+qq$by!)3%57s^m$h2(kh5&g$z
 DEBUG = True
 
 ALLOWED_HOSTS = ["aniklpu.cloud"]
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,10 +122,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [BASE_DIR / "templates/assets"]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # This is for collectstatic, where all static files will be collected
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CSRF_TRUSTED_ORIGINS = ['https://aniklpu.cloud']
+CSRF_TRUSTED_ORIGINS = ['https://aniklpu.cloud']

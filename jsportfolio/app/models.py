@@ -9,12 +9,12 @@ class ContactMessage(models.Model):
         return f'Message from {self.name} ({self.email})'
 
 
-
-class Service(models.Model):
-    title = models.CharField(max_length=100)
+class Project(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
     icon_class = models.CharField(max_length=50, default="ti-vector")
-    short_description = models.TextField()
-    detailed_description = models.TextField()
+    image = models.ImageField(upload_to='project_images/', blank=True, null=True)
+
 
     def __str__(self):
-        return self.title
+        return self.name
