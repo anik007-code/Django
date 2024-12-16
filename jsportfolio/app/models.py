@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 class ContactMessage(models.Model):
@@ -12,6 +13,7 @@ class ContactMessage(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    # description = RichTextField()
     icon_class = models.CharField(max_length=50, default="ti-vector")
     image = models.ImageField(upload_to='project_images/', blank=True, null=True)
 

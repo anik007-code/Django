@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Project, ContactMessage
 
+
 def home(request):
-    projects = Project.objects.all()
-    return render(request, 'index.html', {'projects': projects})
+    projectsx = Project.objects.all()
+    return render(request, 'index.html', {'projects': projectsx})
 
 def contact(request):
     if request.method == 'POST':
