@@ -15,8 +15,8 @@ SECRET_KEY = 'django-insecure-$uhtm$+^=8tj&7doya5^ii!i+qq$by!)3%57s^m$h2(kh5&g$z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["aniklpu.cloud"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["aniklpu.cloud"]
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -66,26 +66,26 @@ WSGI_APPLICATION = 'jsportfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://anik:123@localhost:5432/Anik')
-# url = urlparse(DATABASE_URL)
-#
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': url.path[1:],  # The database name
-#         'USER': url.username,    # The username
-#         'PASSWORD': url.password,  # The password
-#         'HOST': url.hostname or 'postgres',  # The host (should be 'postgres')
-#         'PORT': url.port or '5432',  # The port (default PostgreSQL port)
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://anik:123@localhost:5432/Anik')
+url = urlparse(DATABASE_URL)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': url.path[1:],  # The database name
+        'USER': url.username,    # The username
+        'PASSWORD': url.password,  # The password
+        'HOST': url.hostname or 'postgres',  # The host (should be 'postgres')
+        'PORT': url.port or '5432',  # The port (default PostgreSQL port)
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
